@@ -21,4 +21,21 @@ public class OrderItem {
     private Order order;
     private int oderPrice;
     private int count;
+
+    public static OrderItem createOrderItem(Item item,int orderPrice,int count){
+        OrderItem orderItem = new OrderItem();
+        orderItem.setItem(item);
+        orderItem.setOderPrice(orderPrice);
+        orderItem.setCount(count);
+
+        item.removeStock(count);
+        return orderItem;
+    }
+
+    public void cancle() {
+        getItem().addStock(count);
+    }
+    public int getTotalPrice(){
+        return getOderPrice()*getCount();
+    }
 }
