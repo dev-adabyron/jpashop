@@ -12,6 +12,9 @@ import java.util.List;
 @Table(name="orders")
 @Getter@Setter
 public class Order {
+    protected Order(){
+
+    }
     @Id
     @GeneratedValue
     @Column(name = "order_id")
