@@ -25,6 +25,7 @@ public class OrderService {
     private final ItemRepository itemRepository;
 
     //주문
+    @Transactional
     public Long order(Long memberId, Long itemId, int count){
         Member member = memberRepository.findOne(memberId);
         Item item = itemRepository.findOne(itemId);
@@ -40,6 +41,7 @@ public class OrderService {
     }
 
 
+    @Transactional
     //취소
     public void cancelOrder(Long orderId){
         Order order = orderRepository.findOne(orderId);
